@@ -5,7 +5,7 @@ const controller = require("../controllers/pageController");
 router.get("/", controller.showHome);
 router.get("/articulo/:id", controller.showProduct);
 router.get("/admin");
-router.get("/admin/crear");
+router.get("/admin/crear", controller.createArticleForm);
 router.get("/admin/editar/:id");
 router.get("/admin/eliminar/:id");
 

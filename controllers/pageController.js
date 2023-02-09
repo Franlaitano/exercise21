@@ -28,4 +28,8 @@ const createArticle = async (req, res) => {
   });
 };
 
-module.exports = { showHome, showProduct };
+const createArticleForm = async (req, res) => {
+  res.render("create");
+};
+
+module.exports = { showHome, showProduct, createArticleForm };
