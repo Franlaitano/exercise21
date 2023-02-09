@@ -1,8 +1,7 @@
 const { Article } = require("../models/article");
 
 const showHome = async (req, res) => {
-  const articles = await Article.findAll();
-  res.render("home", { articles });
+  res.render("home");
 };
 
 const showProduct = (req, res) => {

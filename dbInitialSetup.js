@@ -1,4 +1,5 @@
 const { Sequelize, Model, DataTypes } = require("sequelize");
+const Article = require("./models/article");
 
 const sequelize = new Sequelize(
   "ha_ejercicio_21",
@@ -18,5 +19,3 @@ create();
 console.log("¡Las tablas fueron creadas!");
 
 module.exports = sequelize;
-
-//hice un cambioa
