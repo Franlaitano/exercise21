@@ -45,7 +45,7 @@ Article.init(
   { sequelize, modelName: "article" }
 );
 
-await sequelize.sync({ force: true });
-console.log("¡Las tablas fueron creadas!");
+/*await sequelize.sync({ force: true });
+console.log("¡Las tablas fueron creadas!");*/
 
-module.exports = Article;
+module.exports = { Article };
