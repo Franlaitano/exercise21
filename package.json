@@ -1,0 +1,25 @@
+{
+  "name": "exercise21",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FedericoAntunes/exercise21.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FedericoAntunes/exercise21/issues"
+  },
+  "homepage": "https://github.com/FedericoAntunes/exercise21#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "sequelize": "^6.28.0"
+  }
+}
