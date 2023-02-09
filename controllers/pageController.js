@@ -1,7 +1,8 @@
-//const Article = require("../models/article");
+const { Article } = require("../models/article");
 
-const showHome = (req, res) => {
-  res.render("home");
+const showHome = async (req, res) => {
+  const articles = await Article.findAll();
+  res.render("home", { articles });
 };
 
 const showProduct = (req, res) => {
