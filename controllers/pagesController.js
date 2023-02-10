@@ -31,6 +31,14 @@ async function showAboutUs(req, res) {
   res.render("aboutUs");
 }
 
+async function showArticleForm(req, res) {
+  const users = await User.findAll({ order: [["firstname"]] });
+  res.render("createArticle", { users });
+}
+
+async function showOneArticle(req, res) {
+  res.render("");
+}
 // Otros handlers...
 // ...
 
@@ -38,4 +46,6 @@ module.exports = {
   showHome,
   showContact,
   showAboutUs,
+  showArticleForm,
+  showOneArticle,
 };

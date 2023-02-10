@@ -6,5 +6,6 @@ const pageController = require("../controllers/pagesController");
 // ...
 
 router.get("/", pageController.showHome);
+router.get("/crear_articulo", pageController.showArticleForm);
 
 module.exports = router;

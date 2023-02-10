@@ -7,7 +7,19 @@ async function index(req, res) {}
 async function show(req, res) {}
 
 // Show the form for creating a new resource
-async function create(req, res) {}
+async function create(req, res) {
+  const title = req.body.title;
+  const content = req.body.content;
+  const user = req.body.user;
+
+  await Article.create({
+    title: title,
+    content: content,
+    userId: user,
+  });
+
+  res.redirect("/");
+}
 
 // Store a newly created resource in storage.
 async function store(req, res) {}
