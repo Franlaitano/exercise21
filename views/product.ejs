@@ -24,18 +24,11 @@
   </head>
   <body>
     <div class="container mt-5 w-75">
-      <h1>Title Of Article</h1>
-      <small class="text-success"> Haje Jan Kamps </small>
-      <small class="text-muted"> / 7:27 AM GMT-3•February 10, 2023</small>
-      <img class="img-fluid mt-2" src="/img/bing_new_day.webp" alt="" />
-      <p class="mt-3">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime eos sequi et facilis
-        veritatis, eum tempora quis. Culpa tempore quis harum expedita voluptatibus vitae nobis,
-        adipisci atque fuga, incidunt recusandae.lorem Lorem ipsum dolor, sit amet consectetur
-        adipisicing elit. Odio recusandae, dolorum alias blanditiis minus nemo maiores impedit
-        asperiores ducimus molestiae quaerat harum? Quas suscipit mollitia sapiente ipsam rem
-        accusantium provident.
-      </p>
+      <h1><%= article.title %></h1>
+      <small class="text-success"><%= article.user.firstname%> <%= article.user.lastname%></small>
+      <small class="text-muted"> <%= article.createdAt %></small>
+      <img class="img-fluid mt-2" src="<%= article.image %>" alt="" />
+      <p class="mt-3"><%= article.content %></p>
       <hr class="text-success my-4" />
       <hr class="border border-dark border-1 opacity-75 my-4" />
       <!-- COMMENTS -->
@@ -43,8 +36,8 @@
         <h4 class="mt-5">Conversation</h4>
         <hr />
         <p>
-          Welcome to TechCrunch comments! Please keep conversations courteous and on-topic. See our
-          <small class="text-success">community guidelines</small> for more information.
+          Bienvenido a Tech-Blog! Por favor mantenga las conversaciones cautelosas. Chequee el
+          <small class="text-success">Community Guidelines</small> por mas informacion.
         </p>
         <section>
           <!-- INYECT COMMENTS HERE -->

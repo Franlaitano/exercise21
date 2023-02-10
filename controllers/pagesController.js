@@ -37,8 +37,14 @@ async function showArticleForm(req, res) {
 }
 
 async function showOneArticle(req, res) {
-  console.log(req.body);
-  res.render("product");
+  console.log(req.params.id);
+  const [article] = await Article.findAll({
+    where: { id: req.params.id },
+    include: User,
+  });
+  console.log(article);
+  // const comments = await Comment.findAll({ order: [["id", "DESC"]] });
+  res.render("product", { article });
 }
 // Otros handlers...
 // ...
