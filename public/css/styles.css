@@ -1,18 +1,1 @@
-/* .secondary-container {
-  max-height: 300px;
-  background-color: red;
-} */
-
-small {
-  display: block;
-}
-
-h1 h2 h3 h4 h5 {
-  font-weight: 800;
-}
-
-@media (min-width: 992px) {
-  .img-aside {
-    max-height: 80px;
-  }
-}
+/* Colocar aquí CSS "propio" */

@@ -1,21 +1,11 @@
-const { Sequelize, Model, DataTypes } = require("sequelize");
-const Article = require("./models/article");
+const db = require("./models");
 
-const sequelize = new Sequelize(
-  "ha_ejercicio_21",
-  process.env.DB_USER,
-  process.env.DB_PASSWORD,
-  {
-    host: "127.0.0.1",
-    dialect: "mysql",
-  }
-);
+module.exports = async () => {
+  // Crear tablas:
+  await db.sequelize.sync({ force: true });
+  console.log("[Database] ¡Las tablas fueron creadas!");
 
-const create = async () => {
-  await sequelize.sync({ force: true });
-  console.log("¡Las tablas fueron creadas!");
+  // Ejecutar seeders (datos de prueba):
+  await require("./seeders/articleSeeder")();
+  console.log("[Database] ¡Los datos de prueba fueron insertados!");
 };
-create();
-console.log("¡Las tablas fueron creadas!");
-
-module.exports = sequelize;
