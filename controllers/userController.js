@@ -8,7 +8,17 @@ async function show(req, res) {}
 
 // Show the form for creating a new resource
 async function create(req, res) {
-  //aca se crea el usuario
+  const firstname = req.body.firstName;
+  const lastname = req.body.lastName;
+  const email = req.body.email;
+
+  await User.create({
+    firstname: firstname,
+    lastname: lastname,
+    email: email,
+  });
+
+  res.redirect("/");
 }
 
 // Store a newly created resource in storage.
