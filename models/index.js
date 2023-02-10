@@ -22,6 +22,12 @@ Article.initModel(sequelize);
 User.hasMany(Article);
 Article.belongsTo(User);
 
+Article.hasMany(Comment);
+Comment.belongsTo(Article);
+
+User.hasMany(Comment);
+Comment.belongsTo(User);
+
 /**
  * Luego de definir los modelos, se pueden establecer relaciones entre los
  * mismos (usando métodos como belongsTo, hasMany y belongsToMany)...

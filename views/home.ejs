@@ -58,7 +58,9 @@
           <div class="col-lg-4">
             <h3><%= articles[i].title %></h3>
             <small class="text-success d-block mt-4">Pepe Perez</small>
-            <small class="text-muted d-block"> <%= articles[i].createdAt %></small>
+            <small class="text-muted d-block">
+              <%= new Date(articles[i].createdAt).toLocaleString() %></small
+            >
           </div>
           <p class="col-lg-4 text-body-tertiary"><%= articles[i].content %></p>
           <img src="<%= articles[i].image  %>" class="col-lg-4 img-fluid" />

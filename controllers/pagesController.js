@@ -16,7 +16,7 @@
  * no debería existir.
  */
 
-const { Article, User } = require("../models");
+const { Article, User, Comment } = require("../models");
 
 async function showHome(req, res) {
   const articles = await Article.findAll({ order: [["id", "DESC"]], include: User });
@@ -37,14 +37,14 @@ async function showArticleForm(req, res) {
 }
 
 async function showOneArticle(req, res) {
-  console.log(req.params.id);
-  const [article] = await Article.findAll({
-    where: { id: req.params.id },
-    include: User,
-  });
+  const users = await User.findAll({ order: [["firstname"]] });
+  const article = await Article.findByPk(req.params.id, { include: User });
   console.log(article);
-  // const comments = await Comment.findAll({ order: [["id", "DESC"]] });
-  res.render("product", { article });
+  const comments = await Comment.findAll({
+    order: [["id", "DESC"]],
+    where: { articleId: req.params.id },
+  });
+  res.render("product", { article, users, comments });
 }
 // Otros handlers...
 // ...
