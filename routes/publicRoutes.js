@@ -8,5 +8,6 @@ const pageController = require("../controllers/pagesController");
 router.get("/", pageController.showHome);
 router.get("/crear_articulo", pageController.showArticleForm);
 router.get("/articulo/:id", pageController.showOneArticle);
+router.get("/crear_usuario", pageController.showUserForm);
 
 module.exports = router;

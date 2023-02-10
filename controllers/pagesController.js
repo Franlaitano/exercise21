@@ -37,10 +37,15 @@ async function showArticleForm(req, res) {
 }
 
 async function showOneArticle(req, res) {
-  res.render("");
+  console.log(req.body);
+  res.render("product");
 }
 // Otros handlers...
 // ...
+
+async function showUserForm(req, res) {
+  res.render("createUser");
+}
 
 module.exports = {
   showHome,
@@ -48,4 +53,5 @@ module.exports = {
   showAboutUs,
   showArticleForm,
   showOneArticle,
+  showUserForm,
 };
