@@ -1,1 +1,8 @@
 /* Colocar aquí CSS "propio" */
+#navbarLogo {
+ max-width: 10rem;
+}
+
+body {
+    margin-top: 6rem;
+}

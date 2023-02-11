@@ -12,7 +12,8 @@ async function showUsersPanel(req, res) {
 }
 
 async function showCommentsPanel(req, res) {
-  const comments = await Comment.findAll({ include: [Article, User], order: [["id", "DESC"]] });
+  const comments = await Comment.findAll({ include: [User, Article], order: [["id", "DESC"]] });
+  //console.log(comments[0].article.title);
   res.render("adminComment", { comments });
 }
 

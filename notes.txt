@@ -2,6 +2,7 @@
 - Fede: 
 * router.get("/api/articulos", pageController.showArticlesApi);
 * Botones en Home y mostrar comentarios y usuario que los creo (en los articles)
+* Poble la tabla de adminComment, pero al tratar de poner el title del article me da error (ARREGLAR)
 
 - Fede y Joaco: 
 * Creamos los formularios de los admin (adminArticle, AdminUser, adminComment) y las rutas corresponientes. 
