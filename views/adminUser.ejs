@@ -15,6 +15,9 @@
     <div class="container">
       <div class="container d-flex justify-content-between p-3">
         <h2>Listado de Usuarios</h2>
+        <a class="btn btn-danger" href="/">Volver al Home</a>
+        <a class="btn btn-success" href="/panel/articulos">Articulos</a>
+        <a class="btn btn-success" href="/panel/comentarios">Comentarios</a>
       </div>
       <div class="row">
         <table class="table table-striped table-bordered">
@@ -34,8 +37,11 @@
               <td><%= user.lastname %></td>
               <td><%= user.email %></td>
               <td>
-                <a class="pe-1" href=""><button class="btn btn-primary">Editar</button></a
-                ><a class="pe-1" href=""><button class="btn btn-danger">Eliminar</button></a>
+                <a class="pe-1" href="/panel/editar/usuario/<%= user.id  %>"
+                  ><button class="btn btn-primary">Editar</button></a
+                ><a class="pe-1" href="/usuarios/destroy/<%= user.id %>"
+                  ><button class="btn btn-danger">Eliminar</button></a
+                >
               </td>
             </tr>
             <% } %>

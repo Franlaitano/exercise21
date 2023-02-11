@@ -8,5 +8,7 @@ const privateController = require("../controllers/privateController");
 router.get("/articulos", privateController.showArticlesPanel);
 router.get("/usuarios", privateController.showUsersPanel);
 router.get("/comentarios", privateController.showCommentsPanel);
+router.get("/editar/articulo/:id", privateController.showArticleEditForm);
+router.get("/editar/usuario/:id", privateController.showUserEditForm);
 
 module.exports = router;

@@ -6,11 +6,14 @@ const articleController = require("../controllers/articleController");
 // ...
 
 router.get("/", articleController.index);
+// USED
 router.post("/crear", articleController.create);
 router.get("/", articleController.store);
 router.get("/:id", articleController.show);
-router.get("/:id/editar", articleController.edit);
+// USED
+router.post("/:id/editar", articleController.edit);
 router.get("/:id", articleController.update);
-router.get("/:id", articleController.destroy);
+// USED
+router.get("/destroy/:id", articleController.destroy);
 
 module.exports = router;

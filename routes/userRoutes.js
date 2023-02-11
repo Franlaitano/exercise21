@@ -6,11 +6,14 @@ const userController = require("../controllers/userController");
 // ...
 
 router.get("/", userController.index);
+// USADA
 router.post("/crear", userController.create);
 router.get("/", userController.store);
 router.get("/:id", userController.show);
-router.get("/:id/editar", userController.edit);
+// USADA
+router.post("/:id/editar", userController.edit);
 router.get("/:id", userController.update);
-router.get("/:id", userController.destroy);
+// USADA
+router.get("/destroy/:id", userController.destroy);
 
 module.exports = router;

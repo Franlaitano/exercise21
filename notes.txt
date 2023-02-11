@@ -1,0 +1,8 @@
+- MODIFICACIONES: 
+- Fede: 
+* router.get("/api/articulos", pageController.showArticlesApi);
+* Botones en Home y mostrar comentarios y usuario que los creo (en los articles)
+
+- Fede y Joaco: 
+* Creamos los formularios de los admin (adminArticle, AdminUser, adminComment) y las rutas corresponientes. 
+* 
