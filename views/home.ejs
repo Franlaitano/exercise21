@@ -17,6 +17,8 @@
       <h1 class="pt-4 text-success fw-bolder">TECH-BLOG</h1>
       <h5 class="text-warning fw-bolder">Express Yourself</h5>
     </div>
+    <a class="btn btn-success" href="/crear_usuario">Crear nuevo usuario</a>
+    <a class="btn btn-success" href="/crear_articulo">Crear artículo</a>
     <div class="container mt-5">
       <div class="row">
         <div class="col-lg-8 mb-5">
@@ -53,18 +55,24 @@
       <section>
         <h4 class="pt-5">Big news</h4>
         <% for( let i = 4; i < articles.length; i++ ) {%>
+
         <div class="row mt-4">
           <hr />
           <div class="col-lg-4">
-            <h3><%= articles[i].title %></h3>
+            <a href="/articulo/<%= articles[i].id  %>"> <h3><%= articles[i].title %></h3> </a>
             <small class="text-success d-block mt-4">Pepe Perez</small>
             <small class="text-muted d-block">
               <%= new Date(articles[i].createdAt).toLocaleString() %></small
             >
           </div>
           <p class="col-lg-4 text-body-tertiary"><%= articles[i].content %></p>
-          <img src="<%= articles[i].image  %>" class="col-lg-4 img-fluid" />
+          <img
+            href="/articulo/<%= articles[i].id  %>"
+            src="<%= articles[i].image  %>"
+            class="col-lg-4 img-fluid"
+          />
         </div>
+
         <% } %>
       </section>
     </div>

@@ -42,20 +42,22 @@
         <section>
           <% for(comment of comments) {%>
           <div class="border p-3">
+            <small><%= comment.user.firstname %></small>
             <p><%= comment.content %></p>
           </div>
           <% } %>
-          <form action="/articulo" method="POST">
+          <form action="/comentarios/crear" method="POST">
             <select id="user" name="user" class="form-select" aria-label="Default select example">
               <option selected>Open this select menu</option>
               <% for(user of users) {%>
               <option value="<%= user.id  %>"><%= user.firstname %> <%= user.lastname %></option>
               <% } %>
             </select>
+            <input name="articleId" type="text" value="<%= article.id  %>" style="display: none" />
             <textarea
               class="d-block my-3"
-              name="comment"
-              id="comment"
+              name="content"
+              id="content"
               cols="100"
               placeholder="Comente aqui..."
               rows="6"

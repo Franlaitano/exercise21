@@ -17,6 +17,7 @@
  * Por lo tanto, al crear una API, los únicos métodos que serían necesarios
  * son: index, show, store, update y destroy.
  */
+const { Comment } = require("../models");
 
 // Display a listing of the resource.
 async function index(req, res) {}
@@ -25,7 +26,17 @@ async function index(req, res) {}
 async function show(req, res) {}
 
 // Show the form for creating a new resource
-async function create(req, res) {}
+async function create(req, res) {
+  const content = req.body.content;
+  const user = req.body.user;
+  const articleId = req.body.articleId;
+  await Comment.create({
+    content,
+    userId: user,
+    articleId,
+  });
+  res.redirect(`/articulo/${articleId}`);
+}
 
 // Store a newly created resource in storage.
 async function store(req, res) {}

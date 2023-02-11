@@ -23,6 +23,17 @@ async function showHome(req, res) {
   res.render("home", { articles });
 }
 
+async function showArticlesApi(req, res) {
+  const articles = await Article.findAll();
+  /*console.log([articles]);
+  let result = [];
+  for (item of articles) {
+    console.log(item);
+    result.push(JSON.stringify(item.dataValues));
+  }*/
+  res.json(articles);
+}
+
 async function showContact(req, res) {
   res.render("contact");
 }
@@ -39,10 +50,10 @@ async function showArticleForm(req, res) {
 async function showOneArticle(req, res) {
   const users = await User.findAll({ order: [["firstname"]] });
   const article = await Article.findByPk(req.params.id, { include: User });
-  console.log(article);
   const comments = await Comment.findAll({
     order: [["id", "DESC"]],
     where: { articleId: req.params.id },
+    include: User,
   });
   res.render("product", { article, users, comments });
 }
@@ -56,6 +67,7 @@ async function showUserForm(req, res) {
 module.exports = {
   showHome,
   showContact,
+  showArticlesApi,
   showAboutUs,
   showArticleForm,
   showOneArticle,
