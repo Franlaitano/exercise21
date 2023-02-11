@@ -24,13 +24,7 @@ async function showHome(req, res) {
 }
 
 async function showArticlesApi(req, res) {
-  const articles = await Article.findAll();
-  /*console.log([articles]);
-  let result = [];
-  for (item of articles) {
-    console.log(item);
-    result.push(JSON.stringify(item.dataValues));
-  }*/
+  const articles = await Article.findAll({ include: [User, Comment], order: [["id", "DESC"]] });
   res.json(articles);
 }
 

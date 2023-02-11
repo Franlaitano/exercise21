@@ -46,14 +46,13 @@
             <p><%= comment.content %></p>
           </div>
           <% } %>
-          <form action="/comentarios/crear" method="POST">
+          <form action="/comentarios/crear/<%= article.id  %>" method="POST">
             <select id="user" name="user" class="form-select" aria-label="Default select example">
               <option selected>Open this select menu</option>
               <% for(user of users) {%>
               <option value="<%= user.id  %>"><%= user.firstname %> <%= user.lastname %></option>
               <% } %>
             </select>
-            <input name="articleId" type="text" value="<%= article.id  %>" style="display: none" />
             <textarea
               class="d-block my-3"
               name="content"
@@ -68,7 +67,7 @@
         </section>
       </div>
 
-      <a href="/articulos"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Back</a>
+      <a href="/"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Back</a>
     </div>
 
     <script

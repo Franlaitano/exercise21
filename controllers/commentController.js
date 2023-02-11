@@ -29,7 +29,7 @@ async function show(req, res) {}
 async function create(req, res) {
   const content = req.body.content;
   const user = req.body.user;
-  const articleId = req.body.articleId;
+  const articleId = req.params.id;
   await Comment.create({
     content,
     userId: user,

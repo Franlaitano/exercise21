@@ -4,6 +4,6 @@ const commentController = require("../controllers/commentController");
 
 // Rutas relacionadas a los comentarios:
 // ...
-router.post("/crear", commentController.create);
+router.post("/crear/:id", commentController.create);
 
 module.exports = router;
