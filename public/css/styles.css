@@ -6,3 +6,15 @@
 body {
     margin-top: 6rem;
 }
+
+.carouselArticleInfo {
+    color: black;
+}
+
+.carrouselImage {
+    height: 10rem!important;
+}
+
+.articleContent {
+    text-overflow: ellipsis " [..]";
+}
