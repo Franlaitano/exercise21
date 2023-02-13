@@ -44,7 +44,6 @@ async function store(req, res) {}
 // Show the form for editing the specified resource.
 async function edit(req, res) {
   const content = req.body.content;
-
   const commentToEdit = await Comment.findByPk(req.params.id);
 
   commentToEdit.content = content;
