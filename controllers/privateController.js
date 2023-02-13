@@ -3,7 +3,8 @@ const { use } = require("../routes/userRoutes");
 
 async function showArticlesPanel(req, res) {
   const articles = await Article.findAll({ include: [User, Comment], order: [["id", "DESC"]] });
-  res.render("adminArticle", { articles });
+  //const numberOfComments = await Comment.findAll({ where: (articleId = article.id) });
+  res.render("adminArticle", { articles }); /////////////////
 }
 
 async function showUsersPanel(req, res) {
