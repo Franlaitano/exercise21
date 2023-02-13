@@ -48,7 +48,7 @@
           <% } %>
           <form action="/comentarios/crear/<%= article.id  %>" method="POST">
             <select id="user" name="user" class="form-select" aria-label="Default select example">
-              <option selected>Open this select menu</option>
+              <option selected>Selecciona el usuario</option>
               <% for(user of users) {%>
               <option value="<%= user.id  %>"><%= user.firstname %> <%= user.lastname %></option>
               <% } %>
