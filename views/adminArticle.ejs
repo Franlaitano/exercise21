@@ -24,7 +24,7 @@
       <div class="">
         <table class="table table-striped table-bordered article-table">
           <thead class="w-100">
-            <tr class="row" style="max-height:100px;">
+            <tr class="row">
               <th scope="col" class="col-1">ID</th>
               <th scope="col" class="col-1">Titulo</th>
               <th scope="col" class="col-4">Contenido</th>
@@ -42,7 +42,7 @@
               <td class="col-4"><%= article.content %></td>
               <td class="col-3 text-truncate"><%= article.image %></td>
               <td class="col-1 text-truncate"><%= article.user.firstname %> <%= article.user.lastname %></td>
-              <td class="col-1"><a href=""></a></td>
+              <td class="col-1"><a class="text-decoration-none text-dark" href=""><%= (article.comments).length  %></a></td>
               <td class="col-1">
                 <a class="pe-1 " href="/panel/editar/articulo/<%= article.id %>"
                   ><button class="btn btn-primary">Editar</button></a
