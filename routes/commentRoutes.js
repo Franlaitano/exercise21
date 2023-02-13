@@ -6,6 +6,6 @@ const commentController = require("../controllers/commentController");
 // ...
 router.post("/crear/:id", commentController.create);
 router.post("/:id/editar", commentController.edit);
-router.post("/destroy/:id", commentController.destroy);
+router.get("/destroy/:id", commentController.destroy);
 
 module.exports = router;
