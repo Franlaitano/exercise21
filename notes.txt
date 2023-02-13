@@ -7,3 +7,6 @@
 - Fede y Joaco: 
 * Creamos los formularios de los admin (adminArticle, AdminUser, adminComment) y las rutas corresponientes. 
 * 
+
+
+- Pendientes: 
