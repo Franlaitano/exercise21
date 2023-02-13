@@ -13,11 +13,11 @@ module.exports = async () => {
       let result = Math.floor(Math.random() * 99) + 1;
       return result;
     };
+
     articles.push({
       title: faker.lorem.sentence(5),
       content: faker.lorem.paragraphs(),
-      image:
-        "https://d500.epimg.net/cincodias/imagenes/2016/07/04/lifestyle/1467646262_522853_1467646344_noticia_normal.jpg",
+      image: faker.datatype.number({ min: 1, max: 3 }) + ".png",
       userId: randomId(),
     });
     users.push({

@@ -35,11 +35,17 @@
               <th scope="row"><%= comment.id %></th>
               <td><%= comment.content %></td>
               <td><%= comment.user.firstname %> <%= comment.user.lastname %></td>
-              <td><%= /*comment.article.id */%></td>
+              <td>
+                <a class="text-decoration-none text-dark" href="/articulo/<%= comment.article.id %>"
+                  ><%= comment.article.id %>
+                </a>
+              </td>
               <td>
                 <a class="pe-1" href="/panel/editar/comentario/<%= comment.id %>"
                   ><button class="btn btn-primary">Editar</button></a
-                ><a class="pe-1" href="/comentarios/destroy/<%= comment.id %>"><button class="btn btn-danger">Eliminar</button></a>
+                ><a class="pe-1" href="/comentarios/destroy/<%= comment.id %>"
+                  ><button class="btn btn-danger">Eliminar</button></a
+                >
               </td>
             </tr>
             <% } %>

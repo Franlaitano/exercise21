@@ -1,4 +1,5 @@
 const { Article, Comment } = require("../models");
+const formidable = require("formidable");
 
 // Display a listing of the resource.
 async function index(req, res) {}
@@ -8,19 +9,27 @@ async function show(req, res) {}
 
 // Show the form for creating a new resource
 async function create(req, res) {
-  const title = req.body.title;
-  const content = req.body.content;
-  const image = req.body.image;
-  const user = req.body.user;
-
-  await Article.create({
-    title: title,
-    content: content,
-    image: image,
-    userId: user,
+  const form = formidable({
+    multiples: false,
+    uploadDir: __dirname + "/../public/img/articlesImg",
+    keepExtensions: true,
   });
 
-  res.redirect("/");
+  form.parse(req, async (err, fields, files) => {
+    const title = fields.title;
+    const content = fields.content;
+    const user = fields.user;
+    const image = files.image.newFilename;
+
+    await Article.create({
+      title: title,
+      content: content,
+      image: image,
+      userId: user,
+    });
+
+    res.redirect("/");
+  });
 }
 
 // Store a newly created resource in storage.
