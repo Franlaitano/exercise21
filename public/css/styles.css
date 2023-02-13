@@ -1,28 +1,28 @@
 /* Colocar aquí CSS "propio" */
 #navbarLogo {
- max-width: 10rem;
+  max-width: 10rem;
 }
 
 body {
-    margin-top: 6rem;
+  margin-top: 6rem;
 }
 
 .carouselArticleInfo {
-    color: black;
+  color: black;
 }
 
 .carrouselImage {
-    height: 10rem!important;
+  height: 10rem !important;
 }
 
 .articleContent {
-    text-overflow: ellipsis " [..]";
+  text-overflow: ellipsis " [..]";
 }
 
 .createNewArticleForm {
-    margin-top: 8.5rem!important;
+  margin-top: 8.5rem !important;
 }
 
 .createNewUserForm {
-    margin-top: 8.5rem!important;
+  margin-top: 8.5rem !important;
 }
