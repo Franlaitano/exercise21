@@ -27,15 +27,19 @@ async function show(req, res) {}
 
 // Show the form for creating a new resource
 async function create(req, res) {
-  const content = req.body.content;
-  const user = req.body.user;
-  const articleId = req.params.id;
-  await Comment.create({
-    content,
-    userId: user,
-    articleId,
-  });
-  res.redirect(`/articulo/${articleId}`);
+  try {
+    const content = req.body.content;
+    const user = req.body.user;
+    const articleId = req.params.id;
+    await Comment.create({
+      content,
+      userId: user,
+      articleId,
+    });
+    res.redirect(`/articulo/${articleId}`);
+  } catch (error) {
+    res.send(error);
+  }
 }
 
 // Store a newly created resource in storage.

@@ -65,7 +65,7 @@
         </div>
         <label for="user" class="form-label">Autor *</label>
         <select id="user" name="user" class="form-select" aria-label="Default select example">
-          <option selected>Selecciona tu usuario</option>
+          <option value="1" selected>Selecciona tu usuario</option>
           <% for(user of users) {%>
           <option value="<%= user.id  %>"><%= user.firstname %> <%= user.lastname %></option>
           <% } %>

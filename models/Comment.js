@@ -11,7 +11,8 @@ class Comment extends Model {
         },
         content: {
           type: DataTypes.TEXT,
-          allowNull: false,
+          notNull: true,
+          notEmpty: true,
         },
       },
       {

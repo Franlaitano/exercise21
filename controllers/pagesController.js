@@ -24,26 +24,6 @@ async function showHome(req, res) {
     include: User,
   });
 
-  const popularArticles = await Comment.findAll();
-
-  /* let commentsInPopularArticle = [];
-  let counter = 0;
-  for (const popularArticle of popularArticles) {
-    for (let i = 0; i < popularArticles.length; i++) {
-      if (popularArticle.articleId === popularArticles[i].articleId) {
-        counter++;
-      }
-
-      for (j = 0; j > popularArticles.length; j++) {
-        if (popularArticle.articleId !== popularArticles[j].articleId) {
-          commentsInPopularArticle.push(popularArticle.articleId);
-        }
-      }
-      if ((commentsInPopularArticle.length = 5)) {
-        return console.log("Se hayaron los articulos mas populares");
-      }
-    }
-  }*/
   res.render("home", { articles });
 }
 

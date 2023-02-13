@@ -12,13 +12,17 @@ async function create(req, res) {
   const lastname = req.body.lastName;
   const email = req.body.email;
 
-  await User.create({
-    firstname: firstname,
-    lastname: lastname,
-    email: email,
-  });
+  try {
+    await User.create({
+      firstname: firstname,
+      lastname: lastname,
+      email: email,
+    });
 
-  res.redirect("/");
+    res.redirect("/");
+  } catch (error) {
+    res.send(`El email ${email} ya está en uso`);
+  }
 }
 
 // Store a newly created resource in storage.
@@ -42,33 +46,10 @@ async function update(req, res) {}
 
 // Remove the specified resource from storage.
 async function destroy(req, res) {
-  const [userToDestroyArticles] = await Article.findAll({
-    where: {
-      userId: req.params.id,
-    },
-  });
-
-  // COMODIN
-  // userToDestroyArticles.userId = 1;
-  // console.log(userToDestroyArticles.userId);
-  // await userToDestroyArticles.save();
-  const [userToDestroyComments] = await Comment.findAll({
-    where: {
-      userId: req.params.id,
-    },
-  });
-  // userToDestroyComments.userId = 1;
-  // await userToDestroyComments.save();
-  // const userToDestroy = await User.destroy({
-  //   where: {
-  //     id: req.params.id,
-  //   },
-  // });
-
   // AGREGADO POR JOACO
   const user = await User.findByPk(req.params.id);
   if (!user) {
-    console.error("User not found");
+    res.send("Usuario no encontrado");
     return;
   }
   // Toma a a las dos promesas dentro del array, y las junta en una unica, y espera a que resuelva para luego poder eliminar al usuario abajo.

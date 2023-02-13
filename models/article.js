@@ -11,11 +11,13 @@ class Article extends Model {
         },
         title: {
           type: DataTypes.STRING,
-          allowNull: false,
+          notNull: true,
+          notEmpty: true,
         },
         content: {
           type: DataTypes.TEXT,
-          allowNull: false,
+          notNull: true,
+          notEmpty: true,
         },
         image: {
           type: DataTypes.BLOB,

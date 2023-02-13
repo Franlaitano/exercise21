@@ -11,12 +11,19 @@ class User extends Model {
         },
         firstname: {
           type: DataTypes.STRING,
+          notNull: true,
+          notEmpty: true,
         },
         lastname: {
           type: DataTypes.STRING,
+          notNull: true,
+          notEmpty: true,
         },
         email: {
           type: DataTypes.STRING,
+          notNull: true,
+          notEmpty: true,
+          unique: true,
         },
       },
       {
