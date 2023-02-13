@@ -32,7 +32,11 @@
           <small class="text-success d-block"
             ><%= articles[0].user.firstname %> <%= articles[0].user.lastname %></small
           >
-          <img class="mt-2 img-fluid" src="/img/articlesImg/<%= articles[0].image  %>" alt="" />
+          <img
+            class="mt-2 img-fluid w-100"
+            src="/img/articlesImg/<%= articles[0].image  %>"
+            alt=""
+          />
         </div>
         <div class="col-lg-4 d-flex flex-column justify-content-evenly">
           <div>
@@ -75,12 +79,16 @@
               <%= new Date(articles[i].createdAt).toLocaleString() %></small
             >
           </div>
-          <p class="col-lg-4 text-body-tertiary articleContent"><%= articles[i].content %></p>
-          <img
-            href="/articulo/<%= articles[i].id  %>"
-            src="/img/articlesImg/<%= articles[i].image  %>"
-            class="col-lg-4 img-fluid"
-          />
+          <div class="col-lg-4">
+            <p class="text-body-tertiary articleContent"><%= articles[i].content %></p>
+          </div>
+          <div class="col-lg-4">
+            <img
+              href="/articulo/<%= articles[i].id  %>"
+              src="/img/articlesImg/<%= articles[i].image  %>"
+              class="img-fluid w-100"
+            />
+          </div>
         </div>
 
         <% } %>
