@@ -66,23 +66,18 @@ async function destroy(req, res) {
   // });
 
   // AGREGADO POR JOACO
-  try {
-    const user = await User.findByPk(req.params.id);
-    if (!user) {
-      console.error("User not found");
-      return;
-    }
-
-    // Toma a a las dos promesas dentro del array, y las junta en una unica, y espera a que resuelva para luego poder eliminar al usuario abajo.
-    await Promise.all([
-      Article.update({ userId: 1 }, { where: { userId: req.params.id } }),
-      Comment.update({ userId: 1 }, { where: { userId: req.params.id } }),
-    ]);
-
-    await user.destroy();
-  } catch (error) {
-    console.error(error);
+  const user = await User.findByPk(req.params.id);
+  if (!user) {
+    console.error("User not found");
+    return;
   }
+  // Toma a a las dos promesas dentro del array, y las junta en una unica, y espera a que resuelva para luego poder eliminar al usuario abajo.
+  await Promise.all([
+    Article.update({ userId: 1 }, { where: { userId: req.params.id } }),
+    Comment.update({ userId: 1 }, { where: { userId: req.params.id } }),
+  ]);
+
+  await user.destroy();
 
   res.redirect("/panel/usuarios");
 }

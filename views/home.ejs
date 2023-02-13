@@ -14,11 +14,7 @@
   </head>
   <body>
     <%- include("partials/navbar") %>
-    <div class="text-center">
-      <h1 class="pt-4 text-success fw-bolder">TECH-BLOG</h1>
-      <h5 class="text-warning fw-bolder">Express Yourself</h5>
-    </div>
-    <div class="container mt-5">
+    <div class="container">
       <div class="row shadow border p-3">
         <h2 class="text-center">Últimos artículos</h2>
         <hr />
@@ -144,10 +140,10 @@
             <a class="text-decoration-none text-dark" href="/articulo/<%= articles[i].id  %>">
               <h3><%= articles[i].title %></h3>
             </a>
-            <small class="text-success d-block mt-4"
+            <small class="text-success d-block mt-2"
               ><%= articles[i].user.firstname %> <%= articles[i].user.lastname %></small
             >
-            <small class="text-muted d-block">
+            <small class="text-muted d-block mb-2">
               <%= new Date(articles[i].createdAt).toLocaleString() %></small
             >
           </div>
