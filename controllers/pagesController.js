@@ -44,7 +44,6 @@ async function showHome(req, res) {
       }
     }
   }*/
-
   res.render("home", { articles });
 }
 

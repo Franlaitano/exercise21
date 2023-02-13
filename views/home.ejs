@@ -23,7 +23,9 @@
         <h2 class="text-center">Últimos artículos</h2>
         <hr />
         <div class="col-lg-8 mb-5">
-          <h2><%= articles[0].title %></h2>
+          <a class="text-decoration-none text-dark" href="/articulo/<%= articles[0].id  %>"
+            ><h2><%= articles[0].title %></h2></a
+          >
           <small class="text-success d-block"
             ><%= articles[0].user.firstname %> <%= articles[0].user.lastname %></small
           >
@@ -53,7 +55,7 @@
           </div>
         </div>
       </div>
-      <div id="carouselExampleCaptions" class="carousel slide">
+      <div id="carouselExampleCaptions" class="carousel slide shadow mt-4">
         ////////////////////////////////////////////////
         <div class="carousel-indicators">
           <button
@@ -139,8 +141,12 @@
         <div class="row mt-4">
           <hr />
           <div class="col-lg-4">
-            <a href="/articulo/<%= articles[i].id  %>"> <h3><%= articles[i].title %></h3> </a>
-            <small class="text-success d-block mt-4">Pepe Perez</small>
+            <a class="text-decoration-none text-dark" href="/articulo/<%= articles[i].id  %>">
+              <h3><%= articles[i].title %></h3>
+            </a>
+            <small class="text-success d-block mt-4"
+              ><%= articles[i].user.firstname %> <%= articles[i].user.lastname %></small
+            >
             <small class="text-muted d-block">
               <%= new Date(articles[i].createdAt).toLocaleString() %></small
             >

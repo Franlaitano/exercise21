@@ -37,7 +37,8 @@
               <td><%= comment.user.firstname %> <%= comment.user.lastname %></td>
               <td><%= /*comment.article.id */%></td>
               <td>
-                <a class="pe-1" href=""><button class="btn btn-primary">Editar</button></a
+                <a class="pe-1" href="/panel/editar/comentario/<%= comment.id  %>"
+                  ><button class="btn btn-primary">Editar</button></a
                 ><a class="pe-1" href=""><button class="btn btn-danger">Eliminar</button></a>
               </td>
             </tr>

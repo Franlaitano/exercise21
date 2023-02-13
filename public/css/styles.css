@@ -18,3 +18,11 @@ body {
 .articleContent {
     text-overflow: ellipsis " [..]";
 }
+
+.createNewArticleForm {
+    margin-top: 8.5rem!important;
+}
+
+.createNewUserForm {
+    margin-top: 8.5rem!important;
+}

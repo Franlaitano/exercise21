@@ -29,10 +29,17 @@ async function showUserEditForm(req, res) {
   res.render("editUser", { user });
 }
 
+async function showCommentEditForm(req, res) {
+  const comment = await Comment.findByPk(req.params.id);
+
+  res.render("editComment", { comment });
+}
+
 module.exports = {
   showArticlesPanel,
   showUsersPanel,
   showCommentsPanel,
   showArticleEditForm,
   showUserEditForm,
+  showCommentEditForm,
 };

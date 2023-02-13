@@ -11,9 +11,11 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <div class="container mt-3">
+    <%- include("partials/navbar") %>
+    <div class="container createNewUserForm">
       <div class="text-bg-light p-3 border">
         <h3>Crear nuevo usuario</h3>
       </div>
@@ -26,7 +28,7 @@
         novalidate
       >
         <div class="mb-3">
-          <label for="firstName" class="form-label">Nombre del usuario</label>
+          <label for="firstName" class="form-label">Nombre del usuario *</label>
           <input
             type="text"
             class="form-control"
@@ -38,7 +40,7 @@
           <div class="invalid-feedback">El campo nombre es obligatorio.</div>
         </div>
         <div class="mb-3">
-          <label for="lastName" class="form-label">Apellido del usuario</label>
+          <label for="lastName" class="form-label">Apellido del usuario *</label>
           <input
             type="text"
             class="form-control"
@@ -50,7 +52,7 @@
           <div class="invalid-feedback">El campo apellido es obligatorio.</div>
         </div>
         <div class="mb-3">
-          <label for="email" class="form-label">Email del usuario</label>
+          <label for="email" class="form-label">Email del usuario *</label>
           <input
             type="text"
             class="form-control"
@@ -61,7 +63,7 @@
           />
           <div class="invalid-feedback">El campo apellido es obligatorio.</div>
         </div>
-        <button id="createUser" class="btn btn-success">Guardar usuario</button>
+        <button id="createUser" class="btn btn-dark">Guardar usuario</button>
       </form>
       <a class="pt-5 d-block text-decoration-none" href="http://localhost:3000">← Volver</a>
     </div>

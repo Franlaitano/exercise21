@@ -42,7 +42,7 @@
         <section>
           <% for(comment of comments) {%>
           <div class="border p-3">
-            <small><%= comment.user.firstname %></small>
+            <small><%= comment.user.firstname %> <%= comment.user.lastname %></small>
             <p><%= comment.content %></p>
           </div>
           <% } %>

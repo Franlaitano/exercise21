@@ -10,11 +10,13 @@ async function show(req, res) {}
 async function create(req, res) {
   const title = req.body.title;
   const content = req.body.content;
+  const image = req.body.image;
   const user = req.body.user;
 
   await Article.create({
     title: title,
     content: content,
+    image: image,
     userId: user,
   });
 
