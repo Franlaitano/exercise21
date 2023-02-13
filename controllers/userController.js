@@ -21,7 +21,7 @@ async function create(req, res) {
 
     res.redirect("/");
   } catch (error) {
-    res.send(`El email ${email} ya está en uso`);
+    res.render("errorTemplate", { error });
   }
 }
 

@@ -20,13 +20,21 @@ async function create(req, res) {
     const content = fields.content;
     const user = fields.user;
     const image = files.image.newFilename;
-
-    await Article.create({
-      title: title,
-      content: content,
-      image: image,
-      userId: user,
-    });
+    if (files.image.originalFilename === "") {
+      await Article.create({
+        title: title,
+        content: content,
+        image: "default-image.jpg",
+        userId: user,
+      });
+    } else {
+      await Article.create({
+        title: title,
+        content: content,
+        image: image,
+        userId: user,
+      });
+    }
 
     res.redirect("/");
   });

@@ -38,7 +38,7 @@ async function create(req, res) {
     });
     res.redirect(`/articulo/${articleId}`);
   } catch (error) {
-    res.send(error);
+    res.render("errorTemplate", { error });
   }
 }
 
