@@ -11,6 +11,7 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
@@ -20,32 +21,33 @@
         <a class="btn btn-success" href="/panel/usuarios">Usuarios</a>
         <a class="btn btn-success" href="/panel/comentarios">Comentarios</a>
       </div>
-      <div class="row">
-        <table class="table table-striped table-bordered">
-          <thead>
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Titulo</th>
-              <th scope="col">Contenido</th>
-              <th scope="col">Imagen</th>
-              <th scope="col">Autor</th>
-              <th scope="col">Número de Comentarios</th>
+      <div class="">
+        <table class="table table-striped table-bordered article-table">
+          <thead class="w-100">
+            <tr class="row">
+              <th scope="col" class="col-1">ID</th>
+              <th scope="col" class="col-1">Titulo</th>
+              <th scope="col" class="col-4">Contenido</th>
+              <th scope="col" class="col-3">Imagen</th>
+              <th scope="col" class="col-1">Autor</th>
+              <th scope="col" class="col-1">Número de Comentarios</th>
+              <th scope="col" class="col-1">Gestionar</th>
             </tr>
           </thead>
           <tbody>
             <% for(article of articles) {%>
-            <tr>
-              <th scope="row"><%= article.id %></th>
-              <td><%= article.title %></td>
-              <td><%= article.content %></td>
-              <td><%= article.image %></td>
-              <td><%= article.user.firstname %> <%= article.user.lastname %></td>
-              <td><a href=""></a></td>
-              <td>
-                <a class="pe-1" href="/panel/editar/articulo/<%= article.id %>"
+            <tr class="row">
+              <td class="col-1"><%= article.id %></th>
+              <td class="col-1"><%= article.title %></td>
+              <td class="col-4"><%= article.content %></td>
+              <td class="col-3 text-truncate"><%= article.image %></td>
+              <td class="col-1 text-truncate"><%= article.user.firstname %> <%= article.user.lastname %></td>
+              <td class="col-1"><a class="text-decoration-none text-dark" href=""><%= (article.comments).length  %></a></td>
+              <td class="col-1">
+                <a class="pe-1 " href="/panel/editar/articulo/<%= article.id %>"
                   ><button class="btn btn-primary">Editar</button></a
-                ><a class="pe-1" href="/articulos/destroy/<%= article.id  %>"
-                  ><button class="btn btn-danger">Eliminar</button></a
+                ><a class="pe-1 " href="/articulos/destroy/<%= article.id  %>"
+                  ><button class="btn btn-danger mt-2">Eliminar</button></a
                 >
               </td>
             </tr>

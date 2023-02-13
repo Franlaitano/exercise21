@@ -3,7 +3,7 @@ const { use } = require("../routes/userRoutes");
 
 async function showArticlesPanel(req, res) {
   const articles = await Article.findAll({ include: [User, Comment], order: [["id", "DESC"]] });
-  res.render("adminArticle", { articles });
+  res.render("adminArticle", { articles }); /////////////////
 }
 
 async function showUsersPanel(req, res) {
@@ -13,7 +13,6 @@ async function showUsersPanel(req, res) {
 
 async function showCommentsPanel(req, res) {
   const comments = await Comment.findAll({ include: [User, Article], order: [["id", "DESC"]] });
-  //console.log(comments[0].article.title);
   res.render("adminComment", { comments });
 }
 

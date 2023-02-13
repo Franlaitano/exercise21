@@ -10,3 +10,13 @@
 
 
 - Pendientes: 
+* Generar nombre, apellido y email con faker //Hecho
+* Funcionalidad de borrar comentario desde el panel de admin
+* Mostrar el número de comentarios en el panel en el panel de articulos
+* Mostrar el formato correcta de la fecha de creación // Hecho
+* Arreglar el tamaño de las imagenes para que no se rompa cuando llega una de un tamaño mayor o menor
+* Text-overflow para los contenidos
+* Validación para todos los formularios
+* Mostrar el articleId en el panel de comentarios
+* Hacer funcionar el carousel
+* Crear un footer //Hecho

@@ -21,9 +21,9 @@ module.exports = async () => {
       userId: randomId(),
     });
     users.push({
-      firstname: faker.name.findName(),
-      lastname: faker.name.findName(),
-      email: faker.name.findName(),
+      firstname: await faker.name.firstName(),
+      lastname: await faker.name.lastName(),
+      email: faker.internet.email(),
     });
     comments.push({
       content: faker.lorem.paragraph(),
