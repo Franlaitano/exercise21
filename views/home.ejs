@@ -40,21 +40,29 @@
         </div>
         <div class="col-lg-4 d-flex flex-column justify-content-evenly">
           <div>
-            <h4><%= articles[1].title %></h4>
+            <a class="text-decoration-none text-dark" href="/articulo/<%= articles[1].id  %>"
+              ><h4><%= articles[1].title %></h4></a
+            >
             <small class="text-success">
               <%= articles[1].user.firstname %> <%= articles[1].user.lastname %></small
             >
             <hr />
           </div>
           <div>
-            <h4><%= articles[2].title %></h4>
+            <a class="text-decoration-none text-dark" href="/articulo/<%= articles[2].id  %>"
+              ><h4><%= articles[2].title %></h4></a
+            >
+
             <small class="text-success">
               <%= articles[2].user.firstname %> <%= articles[2].user.lastname %></small
             >
             <hr />
           </div>
           <div>
-            <h4><%= articles[3].title %></h4>
+            <a class="text-decoration-none text-dark" href="/articulo/<%= articles[3].id  %>"
+              ><h4><h4><%= articles[3].title %></h4></h4></a
+            >
+
             <small class="text-success">
               <%= articles[3].user.firstname %> <%= articles[3].user.lastname %></small
             >
