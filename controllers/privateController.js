@@ -1,9 +1,10 @@
+// Require the models that we are going to use
 const { Article, User, Comment } = require("../models");
-const { use } = require("../routes/userRoutes");
 
+// We use (nameOfTheModel).findAll to store in the const the data of that sequelize bring to us from the DB
 async function showArticlesPanel(req, res) {
   const articles = await Article.findAll({ include: [User, Comment], order: [["id", "DESC"]] });
-  res.render("adminArticle", { articles }); /////////////////
+  res.render("adminArticle", { articles });
 }
 
 async function showUsersPanel(req, res) {
@@ -16,6 +17,7 @@ async function showCommentsPanel(req, res) {
   res.render("adminComment", { comments });
 }
 
+// In the "findByPk" we only want to bring ONE entity from the DB, that who match his ID with the parametres of the function
 async function showArticleEditForm(req, res) {
   const article = await Article.findByPk(req.params.id);
 
