@@ -1,13 +1,16 @@
+// Require article model
 const { Article, Comment } = require("../models");
+
+// Require formidable
 const formidable = require("formidable");
 
-// Display a listing of the resource.
+/* Display a listing of the resource.
 async function index(req, res) {}
 
 // Display the specified resource.
-async function show(req, res) {}
+async function show(req, res) {} */
 
-// Show the form for creating a new resource
+// Create new resource from form
 async function create(req, res) {
   const form = formidable({
     multiples: false,
@@ -40,10 +43,10 @@ async function create(req, res) {
   });
 }
 
-// Store a newly created resource in storage.
-async function store(req, res) {}
+/* Store a newly created resource in storage.
+async function store(req, res) {} */
 
-// Show the form for editing the specified resource.
+// Edit existing resource from admin form
 async function edit(req, res) {
   const title = req.body.title;
   const content = req.body.content;
@@ -58,8 +61,8 @@ async function edit(req, res) {
   res.redirect("/panel/articulos");
 }
 
-// Update the specified resource in storage.
-async function update(req, res) {}
+/*/ Update the specified resource in storage.
+async function update(req, res) {} */
 
 // Remove the specified resource from storage.
 async function destroy(req, res) {
