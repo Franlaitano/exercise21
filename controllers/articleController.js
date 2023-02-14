@@ -5,14 +5,16 @@ const { Article, Comment } = require("../models");
 const formidable = require("formidable");
 
 // Create new resource from form
-async function create(req, res) { // Request and store file via formidable 
+async function create(req, res) {
+  // Request and store file via formidable
   const form = formidable({
     multiples: false,
     uploadDir: __dirname + "/../public/img/articlesImg",
     keepExtensions: true,
   });
 
-  form.parse(req, async (err, fields, files) => { // Parse form and generate resource
+  form.parse(req, async (err, fields, files) => {
+    // Parse form and generate resource
     const title = fields.title;
     const content = fields.content;
     const user = fields.user;
@@ -54,10 +56,12 @@ async function edit(req, res) {
 
 // Remove the specified resource from storage.
 async function destroy(req, res) {
-  await Comment.destroy({ // Remove comments first
+  await Comment.destroy({
+    // Remove comments first
     where: { articleId: req.params.id },
   });
-  await Article.destroy({ // Then remove article from storage
+  await Article.destroy({
+    // Then remove article from storage
     where: { id: req.params.id },
   });
   res.redirect("/panel/articulos");
