@@ -20,3 +20,7 @@
 * Mostrar el articleId en el panel de comentarios // Hecho
 * Hacer funcionar el carousel
 * Crear un footer //Hecho
+
+- Retoques para pasarle el codigo a los compañeros:
+* Comentar el codigo, ir archivo por archivo. 
+* Limpiar el codigo que no este en uso. 
