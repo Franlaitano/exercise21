@@ -14,13 +14,24 @@
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
+    "express-session": "^1.17.3",
     "formidable": "^2.1.1",
-    "mysql2": "^3.1.1",
+    "mysql2": "^3.1.2",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
     "sequelize": "^6.28.0",
     "sqlite3": "^5.0.8"
   },
   "description": "Hack Academy - Ejemplo de MVC y Sequelize",
   "devDependencies": {
     "@faker-js/faker": "^6.3.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Franlaitano/exercise21.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Franlaitano/exercise21/issues"
+  },
+  "homepage": "https://github.com/Franlaitano/exercise21#readme"
 }

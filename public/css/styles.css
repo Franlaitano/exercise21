@@ -39,3 +39,7 @@ body {
 .tableImg {
   max-width: 16rem;
 }
+
+.sign-up {
+  text-decoration: none;
+}
