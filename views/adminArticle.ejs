@@ -11,7 +11,7 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
     <div class="container">
@@ -40,7 +40,7 @@
               <td class="col-1"><%= article.id %></th>
               <td class="col-1"><%= article.title %></td>
               <td class="col-4"><%= article.content %></td>
-              <td class="col-3 text-truncate"><%= article.image %></td>
+              <td class="col-3 text-truncate"><img class="tableImg" src="/img/articlesImg/<%= article.image %>" alt=""></td>
               <td class="col-1 text-truncate"><%= article.user.firstname %> <%= article.user.lastname %></td>
               <td class="col-1"><a class="text-decoration-none text-dark" href=""><%= (article.comments).length  %></a></td>
               <td class="col-1">

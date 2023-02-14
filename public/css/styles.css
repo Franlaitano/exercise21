@@ -36,3 +36,6 @@ body {
   max-height: 500px;
   object-fit: cover;
 }
+.tableImg {
+  max-width: 16rem;
+}
