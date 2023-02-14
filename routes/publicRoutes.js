@@ -2,8 +2,7 @@ const express = require("express");
 const router = express.Router();
 const pageController = require("../controllers/pagesController");
 
-// Rutas relacionadas a la parte pública del sitio web:
-// ...
+// Routes related to the publicviews of the web site:
 
 router.get("/", pageController.showHome);
 router.get("/crear_articulo", pageController.showArticleForm);

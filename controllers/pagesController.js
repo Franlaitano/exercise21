@@ -23,6 +23,7 @@ async function showOneArticle(req, res) {
     where: { articleId: req.params.id },
     include: User,
   });
+
   res.render("product", { article, users, comments });
 }
 
@@ -32,6 +33,7 @@ async function showUserForm(req, res) {
 
 async function showArticlesApi(req, res) {
   const articles = await Article.findAll({ include: [User, Comment], order: [["id", "DESC"]] });
+
   res.json(articles);
 }
 

@@ -25,6 +25,7 @@
       <div class="row shadow border p-3">
         <h2 class="text-center">Últimos artículos</h2>
         <hr />
+        <!-- SHOW THE LATEST ARTICLE -->
         <div class="col-lg-8 mb-5">
           <a class="text-decoration-none text-dark" href="/articulo/<%= articles[0].id  %>"
             ><h2><%= articles[0].title %></h2></a
@@ -38,6 +39,7 @@
             alt=""
           />
         </div>
+        <!-- SHOW THE NEXT 3 LATEST ARTICLES AFTER THE LAST -->
         <div class="col-lg-4 d-flex flex-column justify-content-evenly">
           <div>
             <a class="text-decoration-none text-dark" href="/articulo/<%= articles[1].id  %>"
@@ -52,7 +54,6 @@
             <a class="text-decoration-none text-dark" href="/articulo/<%= articles[2].id  %>"
               ><h4><%= articles[2].title %></h4></a
             >
-
             <small class="text-success">
               <%= articles[2].user.firstname %> <%= articles[2].user.lastname %></small
             >
@@ -62,7 +63,6 @@
             <a class="text-decoration-none text-dark" href="/articulo/<%= articles[3].id  %>"
               ><h4><h4><%= articles[3].title %></h4></h4></a
             >
-
             <small class="text-success">
               <%= articles[3].user.firstname %> <%= articles[3].user.lastname %></small
             >
@@ -70,6 +70,7 @@
           </div>
         </div>
       </div>
+      <!-- SHOW THE NEXT LATEST ARTICLES -->
       <div class="row border shadow mt-4 p-3 mb-5">
         <h4 class="pt-5">Big news</h4>
         <% for( let i = 4; i < articles.length; i++ ) {%>

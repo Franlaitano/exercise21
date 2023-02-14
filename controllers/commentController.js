@@ -11,6 +11,7 @@ async function create(req, res) {
       userId: user,
       articleId,
     });
+
     res.redirect(`/articulo/${articleId}`);
   } catch (error) {
     res.render("errorTemplate", { error });
