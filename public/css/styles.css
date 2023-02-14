@@ -26,3 +26,13 @@ body {
 .createNewUserForm {
   margin-top: 8.5rem !important;
 }
+
+.principal-img {
+  max-height: 380px;
+  object-fit: cover;
+}
+
+.img-product {
+  max-height: 500px;
+  object-fit: cover;
+}

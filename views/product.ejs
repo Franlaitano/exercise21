@@ -28,7 +28,11 @@
       <h1><%= article.title %></h1>
       <small class="text-success"><%= article.user.firstname%> <%= article.user.lastname%></small>
       <small class="text-muted d-block"> <%= new Date(article.createdAt).toLocaleString() %></small>
-      <img class="img-fluid mt-2" src="/img/articlesImg/<%= article.image  %>" alt="" />
+      <img
+        class="img-fluid mt-2 img-product w-100"
+        src="/img/articlesImg/<%= article.image  %>"
+        alt=""
+      />
       <p class="mt-3"><%= article.content %></p>
       <hr class="text-success my-4" />
       <hr class="border border-dark border-1 opacity-75 my-4" />
