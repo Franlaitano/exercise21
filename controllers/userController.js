@@ -3,7 +3,7 @@ const { User, Article, Comment } = require("../models");
 /* In the userController we define the handlers functions for the routes that modifies the users table in the DB. */
 
 // Show the form for creating a new resource.
-async function create(req, res) {
+async function store(req, res) {
   // First we define the constants with the parameters we get from the forms.
   const firstname = req.body.firstName;
   const lastname = req.body.lastName;
@@ -24,11 +24,8 @@ async function create(req, res) {
   }
 }
 
-// Store a newly created resource in storage.
-async function store(req, res) {}
-
 // Show the form for editing the specified resource.
-async function edit(req, res) {
+async function update(req, res) {
   const userToEdit = await User.findByPk(req.params.id);
 
   userToEdit.firstname = req.body.firstname;
@@ -40,9 +37,6 @@ async function edit(req, res) {
   res.redirect("/panel/usuarios");
 }
 
-// Update the specified resource in storage.
-async function update(req, res) {}
-
 // Remove the specified resource from storage.
 async function destroy(req, res) {
   const user = await User.findByPk(req.params.id);
@@ -50,7 +44,7 @@ async function destroy(req, res) {
     res.send("Usuario no encontrado");
     return;
   }
-  // Takes both promises form the array, and makes them a singular promise, then wait until resolve them to after destroy the user.
+  // Takes both promises from the array, and makes them a singular promise, then wait until resolve them to after destroy the user.
   await Promise.all([
     Article.update({ userId: 1 }, { where: { userId: req.params.id } }),
     Comment.update({ userId: 1 }, { where: { userId: req.params.id } }),
@@ -62,11 +56,7 @@ async function destroy(req, res) {
 }
 
 module.exports = {
-  index,
-  show,
-  create,
   store,
-  edit,
   update,
   destroy,
 };

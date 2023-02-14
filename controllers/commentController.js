@@ -1,7 +1,7 @@
 const { Comment } = require("../models");
 
-// Create a new comment:
-async function create(req, res) {
+// Store a new comment:
+async function store(req, res) {
   try {
     const content = req.body.content;
     const user = req.body.user;
@@ -18,8 +18,8 @@ async function create(req, res) {
   }
 }
 
-// Edit a comment
-async function edit(req, res) {
+// Update a comment
+async function update(req, res) {
   const content = req.body.content;
   const commentToEdit = await Comment.findByPk(req.params.id);
 
@@ -40,7 +40,7 @@ async function destroy(req, res) {
 }
 
 module.exports = {
-  create,
-  edit,
+  store,
+  update,
   destroy,
 };
