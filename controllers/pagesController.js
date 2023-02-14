@@ -1,21 +1,3 @@
-/**
- * Este archivo se utiliza en un proyecto donde se está utlizando server-side
- * rendering (ej: con un motor de templates como EJS). Tiene como objetivo
- * mostrar (renderear) páginas que no están directamente relacionandas con
- * una entidad del proyecto.
- *
- * Ejemplos:
- *   - Página de inicio (Home).
- *   - Página de contacto.
- *   - Página con política de privacidad.
- *   - Página con términos y condiciones.
- *   - Página con preguntas frecuentes (FAQ).
- *   - Etc.
- *
- * En caso de estar creando una API, este controlador carece de sentido y
- * no debería existir.
- */
-
 const { Article, User, Comment } = require("../models");
 
 async function showHome(req, res) {
@@ -27,21 +9,9 @@ async function showHome(req, res) {
   res.render("home", { articles });
 }
 
-async function showArticlesApi(req, res) {
-  const articles = await Article.findAll({ include: [User, Comment], order: [["id", "DESC"]] });
-  res.json(articles);
-}
-
-async function showContact(req, res) {
-  res.render("contact");
-}
-
-async function showAboutUs(req, res) {
-  res.render("aboutUs");
-}
-
 async function showArticleForm(req, res) {
   const users = await User.findAll({ order: [["firstname"]] });
+
   res.render("createArticle", { users });
 }
 
@@ -55,18 +25,19 @@ async function showOneArticle(req, res) {
   });
   res.render("product", { article, users, comments });
 }
-// Otros handlers...
-// ...
 
 async function showUserForm(req, res) {
   res.render("createUser");
 }
 
+async function showArticlesApi(req, res) {
+  const articles = await Article.findAll({ include: [User, Comment], order: [["id", "DESC"]] });
+  res.json(articles);
+}
+
 module.exports = {
   showHome,
-  showContact,
   showArticlesApi,
-  showAboutUs,
   showArticleForm,
   showOneArticle,
   showUserForm,
