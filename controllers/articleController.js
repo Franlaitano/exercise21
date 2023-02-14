@@ -1,24 +1,18 @@
-// Require article model
+// Require models
 const { Article, Comment } = require("../models");
 
 // Require formidable
 const formidable = require("formidable");
 
-/* Display a listing of the resource.
-async function index(req, res) {}
-
-// Display the specified resource.
-async function show(req, res) {} */
-
 // Create new resource from form
-async function create(req, res) {
+async function create(req, res) { // Request and store file via formidable 
   const form = formidable({
     multiples: false,
     uploadDir: __dirname + "/../public/img/articlesImg",
     keepExtensions: true,
   });
 
-  form.parse(req, async (err, fields, files) => {
+  form.parse(req, async (err, fields, files) => { // Parse form and generate resource
     const title = fields.title;
     const content = fields.content;
     const user = fields.user;
@@ -43,9 +37,6 @@ async function create(req, res) {
   });
 }
 
-/* Store a newly created resource in storage.
-async function store(req, res) {} */
-
 // Edit existing resource from admin form
 async function edit(req, res) {
   const title = req.body.title;
@@ -61,30 +52,20 @@ async function edit(req, res) {
   res.redirect("/panel/articulos");
 }
 
-/*/ Update the specified resource in storage.
-async function update(req, res) {} */
-
 // Remove the specified resource from storage.
 async function destroy(req, res) {
-  // HAY QUE DESTRUIR PRIMERO EL COMENTARIO***
-  await Comment.destroy({
+  await Comment.destroy({ // Remove comments first
     where: { articleId: req.params.id },
   });
-  await Article.destroy({
+  await Article.destroy({ // Then remove article from storage
     where: { id: req.params.id },
   });
   res.redirect("/panel/articulos");
 }
 
-// Otros handlers...
-// ...
-
+// Exports
 module.exports = {
-  index,
-  show,
   create,
-  store,
   edit,
-  update,
   destroy,
 };
