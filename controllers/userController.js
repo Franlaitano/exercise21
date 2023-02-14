@@ -1,26 +1,25 @@
 const { User, Article, Comment } = require("../models");
 
-// Display a listing of the resource.
-async function index(req, res) {}
+/* In the userController we define the handlers functions for the routes that modifies the users table in the DB. */
 
-// Display the specified resource.
-async function show(req, res) {}
-
-// Show the form for creating a new resource
+// Show the form for creating a new resource.
 async function create(req, res) {
+  // First we define the constants with the parameters we get from the forms.
   const firstname = req.body.firstName;
   const lastname = req.body.lastName;
   const email = req.body.email;
 
+  // Then we use "try" to create the new user
   try {
     await User.create({
       firstname: firstname,
       lastname: lastname,
       email: email,
     });
-
     res.redirect("/");
   } catch (error) {
+    // If the "try" fails, the "catch" will hand the error, in this case there's one possible error,
+    // the try will fail if the email is already registered for another user.
     res.render("errorTemplate", { error });
   }
 }
@@ -46,13 +45,12 @@ async function update(req, res) {}
 
 // Remove the specified resource from storage.
 async function destroy(req, res) {
-  // AGREGADO POR JOACO
   const user = await User.findByPk(req.params.id);
   if (!user) {
     res.send("Usuario no encontrado");
     return;
   }
-  // Toma a a las dos promesas dentro del array, y las junta en una unica, y espera a que resuelva para luego poder eliminar al usuario abajo.
+  // Takes both promises form the array, and makes them a singular promise, then wait until resolve them to after destroy the user.
   await Promise.all([
     Article.update({ userId: 1 }, { where: { userId: req.params.id } }),
     Comment.update({ userId: 1 }, { where: { userId: req.params.id } }),
@@ -62,9 +60,6 @@ async function destroy(req, res) {
 
   res.redirect("/panel/usuarios");
 }
-
-// Otros handlers...
-// ...
 
 module.exports = {
   index,
