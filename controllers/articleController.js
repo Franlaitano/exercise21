@@ -4,8 +4,8 @@ const { Article, Comment } = require("../models");
 // Require formidable
 const formidable = require("formidable");
 
-// Create new resource from form
-async function create(req, res) {
+// Store new resource from form
+async function store(req, res) {
   // Request and store file via formidable
   const form = formidable({
     multiples: false,
@@ -39,8 +39,8 @@ async function create(req, res) {
   });
 }
 
-// Edit existing resource from admin form
-async function edit(req, res) {
+// Update existing resource from admin form
+async function update(req, res) {
   const title = req.body.title;
   const content = req.body.content;
 
@@ -69,7 +69,7 @@ async function destroy(req, res) {
 
 // Exports
 module.exports = {
-  create,
-  edit,
+  store,
+  update,
   destroy,
 };

@@ -12,7 +12,7 @@ app.set("view engine", "ejs");
 
 routes(app);
 
-//dbInitialSetup(); // Crea tablas e inserta datos de prueba.
+dbInitialSetup(); // Create the tables and insert the data from the seeder, if you want to keep your data in the tables comment this line.
 
 app.listen(APP_PORT, () => {
   console.log(`\n[Express] Servidor corriendo en el puerto ${APP_PORT}.`);
