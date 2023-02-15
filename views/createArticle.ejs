@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <%- include("partials/navbar") %>
+    <%- include("partials/navbarHomeUser") %>
     <div class="container createNewArticleForm">
       <div class="text-bg-light p-3 mt-2 border">
         <h3>Crear nuevo artículo</h3>
@@ -69,16 +69,14 @@
           />
           <div class="invalid-feedback">El campo contenido es obligatorio.</div>
         </div>
-        <label for="user" class="form-label">Autor</label>
-        <select id="user" name="user" class="form-select" aria-label="Default select example">
-          <option value="1" selected>Selecciona tu usuario</option>
-          <% for(user of users) {%>
-          <option value="<%= user.id  %>"><%= user.firstname %> <%= user.lastname %></option>
-          <% } %>
-        </select>
-        <button id="createArticle" class="btn btn-dark mt-3">Guardar artículo</button>
+
+        <button id="createArticle" class="btn btn-dark mt-3">
+          Guardar artículo
+        </button>
       </form>
-      <a class="pt-5 d-block text-decoration-none" href="http://localhost:3000">← Volver</a>
+      <a class="pt-5 d-block text-decoration-none" href="http://localhost:3000"
+        >← Volver</a
+      >
     </div>
     <%- include("partials/footer") %>
     <script src="/js/script.js"></script>

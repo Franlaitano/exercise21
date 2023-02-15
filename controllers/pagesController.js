@@ -10,9 +10,10 @@ async function showHome(req, res) {
 }
 
 async function showArticleForm(req, res) {
+  const user = req.user;
   const users = await User.findAll({ order: [["firstname"]] });
 
-  res.render("createArticle", { users });
+  res.render("createArticle", { users, user });
 }
 
 async function showOneArticle(req, res) {
@@ -32,7 +33,10 @@ async function showUserForm(req, res) {
 }
 
 async function showArticlesApi(req, res) {
-  const articles = await Article.findAll({ include: [User, Comment], order: [["id", "DESC"]] });
+  const articles = await Article.findAll({
+    include: [User, Comment],
+    order: [["id", "DESC"]],
+  });
 
   res.json(articles);
 }
