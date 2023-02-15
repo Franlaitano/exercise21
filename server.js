@@ -21,10 +21,11 @@ app.use(
   }),
 );
 app.use(passport.session());
+
 passport.use(
   new LocalStrategy(async function (username, password, done) {
     try {
-      const user = await User.findOne({ where: { email: username } });
+      const user = await User.findOne({ where: { username: req.body.username } });
       done(null, false, { message: "Credenciales incorrectas" });
       return done(null, user);
     } catch (error) {

@@ -1,5 +1,6 @@
 const { faker } = require("@faker-js/faker"); // Require Faker
 const { Article, User, Comment } = require("../models"); // Require models
+const bcrypt = require("bcryptjs");
 
 faker.locale = "es";
 
@@ -28,6 +29,8 @@ module.exports = async () => {
         firstname: await faker.name.firstName(),
         lastname: await faker.name.lastName(),
         email: faker.internet.email(),
+        username: faker.internet.userName(),
+        password: "1234",
       });
     } else {
       users.push({

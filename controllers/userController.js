@@ -8,6 +8,14 @@ async function create(req, res) {
   res.render("createUser");
 }
 
+async function register(req, res) {
+  if (req.isAuthenticated()) {
+    res.send(`Te damos la bienvenida, ${req.user.firstname}!!`);
+  } else {
+    res.redirect("/login");
+  }
+}
+
 // Show the form for creating a new resource.
 async function store(req, res) {}
 
@@ -17,13 +25,10 @@ async function update(req, res) {}
 // Remove the specified resource from storage.
 async function destroy(req, res) {}
 
-async function register(req, res) {
-  if (req.isAuthenticated()) {
-    res.send(`Te damos la bienvenida, ${req.user.firstname}!!`);
-  } else {
-    res.redirect("/login");
-  }
+async function showlogin(req, res) {
+  res.render("loginUser");
 }
+
 async function authenticate(req, res) {
   return (req, res) => {
     passport.authenticate("local", {
@@ -31,10 +36,6 @@ async function authenticate(req, res) {
       failureRedirect: "/login",
     });
   };
-}
-
-async function showlogin(req, res) {
-  res.render("loginUser");
 }
 
 module.exports = {

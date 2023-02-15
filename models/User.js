@@ -25,6 +25,16 @@ class User extends Model {
           notEmpty: true,
           unique: true,
         },
+        username: {
+          type: DataTypes.STRING,
+          notNull: true,
+          notEmpty: true,
+        },
+        password: {
+          type: DataTypes.STRING,
+          notNull: true,
+          notEmpty: true,
+        },
       },
       {
         sequelize,
