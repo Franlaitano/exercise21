@@ -22,7 +22,8 @@ async function showlogin(req, res) {
 
 async function homeUser(req, res) {
   const articles = await Article.findAll({ include: User });
-  res.render("homeUser", { articles });
+  const user = await req.user;
+  res.render("homeUser", { articles, user });
 }
 
 const login = passport.authenticate("local", {
