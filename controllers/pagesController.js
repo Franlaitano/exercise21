@@ -1,19 +1,14 @@
 const { Article, User, Comment } = require("../models");
+const formidable = require("formidable");
 
 async function showHome(req, res) {
+  const user = await req.user;
   const articles = await Article.findAll({
     order: [["id", "DESC"]],
     include: User,
   });
 
-  res.render("home", { articles });
-}
-
-async function showArticleForm(req, res) {
-  const user = req.user;
-  const users = await User.findAll({ order: [["firstname"]] });
-
-  res.render("createArticle", { users, user });
+  res.render("home", { articles, user });
 }
 
 async function showOneArticle(req, res) {
@@ -44,7 +39,6 @@ async function showArticlesApi(req, res) {
 module.exports = {
   showHome,
   showArticlesApi,
-  showArticleForm,
   showOneArticle,
   showUserForm,
 };

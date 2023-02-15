@@ -4,6 +4,10 @@ const { Article, Comment } = require("../models");
 // Require formidable
 const formidable = require("formidable");
 
+async function create(req, res) {
+  res.render("createArticle");
+}
+
 // Store new resource from form
 async function store(req, res) {
   // Request and store file via formidable
@@ -24,7 +28,7 @@ async function store(req, res) {
         title: title,
         content: content,
         image: "default-image.jpg",
-        userId: user,
+        userId: req.user.id,
       });
     } else {
       await Article.create({
@@ -69,6 +73,7 @@ async function destroy(req, res) {
 
 // Exports
 module.exports = {
+  create,
   store,
   update,
   destroy,

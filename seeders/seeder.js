@@ -28,10 +28,9 @@ module.exports = async () => {
       users.push({
         firstname: await faker.name.firstName(),
         lastname: await faker.name.lastName(),
-        email: faker.internet.email(),
-        username: faker.internet.userName(),
-        password: await bcrypt.hash("1234", 8),
-        //password: "1234",
+        email: await faker.internet.email(),
+        username: await faker.internet.userName(),
+        password: await bcrypt.hash("1", 8),
       });
     } else {
       users.push({
@@ -41,7 +40,7 @@ module.exports = async () => {
       });
     }
     comments.push({
-      content: faker.lorem.paragraph(),
+      content: await faker.lorem.paragraph(),
       userId: randomId(),
       articleId: randomId(),
     });
