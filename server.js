@@ -1,5 +1,4 @@
 require("dotenv").config();
-
 const express = require("express");
 const routes = require("./routes");
 const dbInitialSetup = require("./dbInitialSetup");
@@ -13,36 +12,50 @@ const app = express();
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
+
 app.use(
   session({
     secret: "algunTextoSecreto",
     resave: false,
     saveUninitialized: false,
-  }),
+  })
 );
+
 app.use(passport.session());
 
 passport.use(
-  new LocalStrategy(async function (username, password, done) {
+  new LocalStrategy(async (username, password, cb) => {
     try {
-      const user = await User.findOne({ where: { username: req.body.username } });
-      done(null, false, { message: "Credenciales incorrectas" });
-      return done(null, user);
+      const user = await User.findOne({
+        where: { username: req.body.username },
+      });
+      if (!user) {
+        console.log("Nombre de usuario no existe.");
+        return cb(null, false, { message: "Credenciales incorrectas." });
+      }
+      const match = await bcrypt.compare(password, user.password);
+      if (!match) {
+        console.log("La contraseña es inválida.");
+        return cb(null, false, { message: "Credenciales incorrectas." });
+      }
+      console.log("Credenciales verificadas correctamente");
+      return cb(null, user);
     } catch (error) {
-      return done(error);
+      cb(error);
     }
-  }),
+  })
 );
 
-passport.serializeUser(function (user, done) {
-  done(null, user.id);
+passport.serializeUser((user, cb) => {
+  cb(null, user.id);
 });
-passport.deserializeUser(async function (id, done) {
+
+passport.deserializeUser(async (id, cb) => {
   try {
     const user = await User.findByPk(id);
-    done(null, user);
-  } catch (error) {
-    done(error);
+    cb(null, user); // Usuario queda disponible en req.user.
+  } catch (err) {
+    cb(err, user);
   }
 });
 

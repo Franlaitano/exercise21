@@ -9,9 +9,9 @@ module.exports = async () => {
   const users = [];
   const comments = [];
 
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 20; i++) {
     const randomId = () => {
-      let result = Math.floor(Math.random() * 99) + 1;
+      let result = Math.floor(Math.random() * 19) + 1;
       return result;
     };
 
@@ -30,7 +30,8 @@ module.exports = async () => {
         lastname: await faker.name.lastName(),
         email: faker.internet.email(),
         username: faker.internet.userName(),
-        password: "1234",
+        password: await bcrypt.hash("1234", 8),
+        //password: "1234",
       });
     } else {
       users.push({

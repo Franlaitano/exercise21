@@ -3,7 +3,11 @@ const { Article, User, Comment } = require("../models");
 
 // We use (nameOfTheModel).findAll to store in the const the data of that sequelize bring to us from the DB
 async function showArticlesPanel(req, res) {
-  const articles = await Article.findAll({ include: [User, Comment], order: [["id", "DESC"]] });
+  const articles = await Article.findAll({
+    include: [User, Comment],
+    where: { userId: req.params.id },
+  });
+  // RESOLVERRRRR
   res.render("adminArticle", { articles });
 }
 
@@ -13,7 +17,10 @@ async function showUsersPanel(req, res) {
 }
 
 async function showCommentsPanel(req, res) {
-  const comments = await Comment.findAll({ include: [User, Article], order: [["id", "DESC"]] });
+  const comments = await Comment.findAll({
+    include: [User, Article],
+    order: [["id", "DESC"]],
+  });
   res.render("adminComment", { comments });
 }
 

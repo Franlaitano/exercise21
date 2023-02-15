@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Welcome!</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <%- include("partials/navbarHomeUser") %>
+    <div class="container">
+      <div class="row shadow border p-3">
+        <h2 class="text-center">Últimos artículos</h2>
+        <hr />
+
+        <!-- prettier-ignore -->
+        <div class="col-lg-8 mb-5">
+          <a class="text-decoration-none text-dark" href="/articulo/<%=articles[0].id%>">
+            <h2><%= articles[0].title %></h2></a>
+          <small class="text-success d-block">
+            <%= articles[0].user.firstname %> <%= articles[0].user.lastname %>
+          </small>
+          <img class="mt-2 img-fluid w-100 principal-img" src="/img/articlesImg/<%= articles[0].image  %>" alt=""/>
+        </div>
+
+        <div class="col-lg-4 d-flex flex-column justify-content-evenly">
+          <div>
+            <a
+              class="text-decoration-none text-dark"
+              href="/articulo/<%= articles[1].id  %>"
+            >
+              <h4><%= articles[1].title %></h4></a
+            >
+            <small class="text-success">
+              <%= articles[1].user.firstname %> <%= articles[1].user.lastname
+              %></small
+            >
+            <hr />
+          </div>
+          <div>
+            <a
+              class="text-decoration-none text-dark"
+              href="/articulo/<%= articles[2].id  %>"
+            >
+              <h4><%= articles[2].title %></h4></a
+            >
+            <small class="text-success">
+              <%= articles[2].user.firstname %> <%= articles[2].user.lastname
+              %></small
+            >
+            <hr />
+          </div>
+          <div>
+            <a
+              class="text-decoration-none text-dark"
+              href="/articulo/<%= articles[3].id  %>"
+              ><h4><h4><%= articles[3].title %></h4></h4></a
+            >
+            <small class="text-success">
+              <%= articles[3].user.firstname %> <%=
+              articles[3].user.lastname%></small
+            >
+            <hr />
+          </div>
+        </div>
+      </div>
+
+      <!-- prettier-ignore-end -->
+
+      <div class="row border shadow mt-4 p-3 mb-5">
+        <h4 class="pt-5">Big news</h4>
+        <% for( let i = 4; i < articles.length; i++ ) {%>
+
+        <div class="row mt-4">
+          <hr />
+          <div class="col-lg-4">
+            <a
+              class="text-decoration-none text-dark"
+              href="/articulo/<%= articles[i].id  %>"
+            >
+              <h3><%= articles[i].title %></h3>
+            </a>
+            <small class="text-success d-block mt-2"
+              ><%= articles[i].user.firstname %> <%= articles[i].user.lastname
+              %></small
+            >
+            <small class="text-muted d-block mb-2">
+              <%= new Date(articles[i].createdAt).toLocaleString() %></small
+            >
+          </div>
+          <div class="col-lg-4">
+            <p class="text-body-tertiary articleContent">
+              <%= articles[i].content %>
+            </p>
+          </div>
+          <div class="col-lg-4">
+            <img
+              href="/articulo/<%= articles[i].id  %>"
+              src="/img/articlesImg/<%= articles[i].image  %>"
+              class="img-fluid w-100"
+            />
+          </div>
+        </div>
+
+        <% } %>
+      </div>
+    </div>
+    <%- include("partials/footer") %>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

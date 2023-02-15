@@ -1,8 +1,8 @@
 const { User, Article, Comment } = require("../models");
-const session = require("express-session");
-const passport = require("passport");
+const bcrypt = require("bcryptjs");
 const LocalStrategy = require("passport-local");
-/* In the userController we define the handlers functions for the routes that modifies the users table in the DB. */
+const passport = require("passport");
+const session = require("express-session");
 
 async function create(req, res) {
   res.render("createUser");
@@ -16,6 +16,30 @@ async function register(req, res) {
   }
 }
 
+async function showlogin(req, res) {
+  res.render("loginUser");
+}
+
+async function homeUser(req, res) {
+  res.render("homeUser");
+}
+
+const login = passport.authenticate("local", {
+  successRedirect: "/home/user",
+  failureRedirect: "/login",
+});
+
+module.exports = {
+  homeUser,
+  login,
+  showlogin,
+  create,
+  store,
+  update,
+  destroy,
+  register,
+};
+
 // Show the form for creating a new resource.
 async function store(req, res) {}
 
@@ -24,26 +48,3 @@ async function update(req, res) {}
 
 // Remove the specified resource from storage.
 async function destroy(req, res) {}
-
-async function showlogin(req, res) {
-  res.render("loginUser");
-}
-
-async function authenticate(req, res) {
-  return (req, res) => {
-    passport.authenticate("local", {
-      successRedirect: "/",
-      failureRedirect: "/login",
-    });
-  };
-}
-
-module.exports = {
-  showlogin,
-  create,
-  store,
-  update,
-  destroy,
-  register,
-  authenticate,
-};
