@@ -1,4 +1,5 @@
 require("dotenv").config();
+const { User } = require("./models");
 const express = require("express");
 const routes = require("./routes");
 const dbInitialSetup = require("./dbInitialSetup");
@@ -6,6 +7,7 @@ const APP_PORT = process.env.APP_PORT || 3000;
 const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
+const bcrypt = require("bcryptjs");
 
 const app = express();
 
@@ -27,7 +29,7 @@ passport.use(
   new LocalStrategy(async (username, password, cb) => {
     try {
       const user = await User.findOne({
-        where: { username: req.body.username },
+        where: { username },
       });
       if (!user) {
         console.log("Nombre de usuario no existe.");
@@ -61,7 +63,7 @@ passport.deserializeUser(async (id, cb) => {
 
 routes(app);
 
-dbInitialSetup(); // Create the tables and insert the data from the seeder, if you want to keep your data in the tables comment this line.
+//dbInitialSetup(); // Create the tables and insert the data from the seeder, if you want to keep your data in the tables comment this line.
 
 app.listen(APP_PORT, () => {
   console.log(`\n[Express] Servidor corriendo en el puerto ${APP_PORT}.`);
